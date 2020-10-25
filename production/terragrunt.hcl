@@ -11,7 +11,7 @@ remote_state {
   config = {
     bucket = "snowplow-ecs-terraform-terragrunt-state"
     key = "${path_relative_to_include()}/terraform-terragrunt-production.tfstate"
-    region = local.common.inputs.region
+    region = get_env("aws_region")
     encrypt = true
     dynamodb_table = "snowplow-ecs-terraform-terragrunt-state-production"
   }
@@ -23,8 +23,8 @@ generate "provider" {
   contents = <<EOF
 
 provider "aws" {
-  region  = "eu-central-1"
-  profile = "homepage-production"
+  region = "${local.common.inputs.aws_region}"
+  profile = "${local.common.inputs.production_account_profile}"
   assume_role {
     role_arn  = "arn:aws:iam::${local.common.inputs.production_account_id}:role/OrganizationAccountAccessRole"
   }
@@ -32,9 +32,19 @@ provider "aws" {
 }
 
 provider "aws" {
-  alias = "homepage-master"
-  region = "eu-central-1"
-  profile = "homepage-master"
+  region = "${local.common.inputs.aws_region}"
+  alias = "${local.common.inputs.shared_services_account_profile}"
+  profile = "${local.common.inputs.shared_services_account_profile}"
+  assume_role {
+    role_arn  = "arn:aws:iam::${local.common.inputs.shared_services_account_id}:role/OrganizationAccountAccessRole"
+  }
+  version = "~> 3.0"
+}
+
+provider "aws" {
+  alias = "${local.common.inputs.master_account_profile}"
+  region = "${local.common.inputs.aws_region}"
+  profile = "${local.common.inputs.master_account_profile}"
   version = "~> 3.0"
 }
 EOF
