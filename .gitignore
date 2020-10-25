@@ -1,3 +1,4 @@
 .idea
 source.sh
 .terragrunt-cache
+.terraform
