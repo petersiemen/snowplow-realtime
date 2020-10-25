@@ -1,8 +1,9 @@
 inputs = {
 //  region = get_env("aws_region")
   amazon_linux_2_ami = "ami-076431be05aaf8080"
-  amazon_linux_2_ecs_ami = "ami-0d2e4df42e13655e0"
+  amazon_linux_2_ecs_ami = "ami-08c1d0b4f39f110d4"
   aws_region = get_env("aws_region")
+  bucket_name = get_env("bucket_name")
 
   master_account_id = get_env("master_account_id")
   master_account_profile = get_env("master_account_profile")

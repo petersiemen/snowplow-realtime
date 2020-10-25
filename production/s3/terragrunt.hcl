@@ -8,15 +8,9 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../snowplow-starter-ecs/snoplow-ecs//jumphost/"
+  source = "../../../snowplow-starter-ecs/snoplow-ecs//s3/"
 }
-
-dependency "admin" {
-  config_path = "../admin"
-}
-
 
 inputs = {
-  ami_id = local.common.inputs.amazon_linux_2_ami
-  key_name = dependency.admin.outputs.key_name
+  bucket_name = local.common.inputs.bucket_name
 }
