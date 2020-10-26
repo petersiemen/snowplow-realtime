@@ -2,3 +2,5 @@
 source.sh
 .terragrunt-cache
 .terraform
+generated-provider.tf
+generated-backend.tf

@@ -50,7 +50,9 @@ inputs = {
 
   max_count = 2
   min_count = 1
-
+  desired_count = 1
+  task_cpu = 1024
+  task_memory = 1024
 
   collector_cookie_domain1 = "petersiemen.net"
   collector_cookie_domain2 = "caravan-markt24.de"

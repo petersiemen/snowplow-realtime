@@ -32,5 +32,8 @@ inputs = {
   enricher_stream_bad_arn = dependency.kinesis.outputs.enriched_bad_arn
   enricher_state_table = "snowplow-scala-stream-enrich"
 
+  task_cpu = 1024
+  task_memory = 1024
+  desired_count = 1
 
 }

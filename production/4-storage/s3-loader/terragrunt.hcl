@@ -36,4 +36,7 @@ inputs = {
   s3_bucket = dependency.s3.outputs.tracking_bucket
   s3_bucket_arn = dependency.s3.outputs.tracking_arn
 
+  task_cpu = 1024
+  task_memory = 1024
+
 }

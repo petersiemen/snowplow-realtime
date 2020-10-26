@@ -26,9 +26,9 @@ inputs = {
   private_subnets = local.common.inputs.subnet_ids
   security_group_lb_id = dependency.alb.outputs.security_group_lb_id
   amazon_linux_2_ecs_ami = local.common.inputs.amazon_linux_2_ecs_ami
-  instance_type = "t3.medium"
+  instance_type = "t3.small"
+  min_size = 1
+  max_size = 4
   desired_capacity = 1
-  min_size = 0
-  max_size = 2
   key_name = dependency.admin.outputs.key_name
 }
