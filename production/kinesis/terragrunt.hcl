@@ -8,7 +8,7 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../snowplow-starter-ecs/snoplow-ecs/kinesis//"
+  source = "../../../snowplow-starter-ecs/snowplow-ecs/kinesis//"
 }
 
 dependency "s3" {

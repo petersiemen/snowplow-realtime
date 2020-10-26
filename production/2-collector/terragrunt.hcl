@@ -7,7 +7,7 @@ locals {
 }
 
 terraform {
-  source = "../../../snowplow-starter-ecs/snoplow-ecs/2-collector//"
+  source = "../../../snowplow-starter-ecs/snowplow-ecs/2-collector//"
 }
 
 dependency "ecs-cluster" {
@@ -25,7 +25,7 @@ dependency "alb" {
 
 inputs = {
 
-  image = "petersiemen/snowplow-stream-collector:1.0.1"
+  image = "petersiemen/snowplow-scala-stream-collector:1.0.1"
   domain = local.common.inputs.domain
   dns_provider = local.common.inputs.shared_services_account_profile
   dns_provider_region = local.common.inputs.aws_region
@@ -50,4 +50,10 @@ inputs = {
 
   max_count = 2
   min_count = 1
+
+
+  collector_cookie_domain1 = "petersiemen.net"
+  collector_cookie_domain2 = "caravan-markt24.de"
+  collector_cookie_fallback_domain = "petersiemen.net"
+
 }
