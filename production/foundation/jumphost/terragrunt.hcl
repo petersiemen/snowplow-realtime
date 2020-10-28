@@ -8,13 +8,15 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../snowplow-starter-ecs/snowplow-ecs/kinesis//"
+  source = "../../../../snowplow-starter-ecs/snowplow-ecs/jumphost//"
 }
 
-dependency "s3" {
-  config_path = "../s3"
+dependency "admin" {
+  config_path = "../admin"
 }
+
 
 inputs = {
-  snowplow_bucket_arn = dependency.s3.outputs.tracking_arn
+  ami_id = local.common.inputs.amazon_linux_2_ami
+  key_name = dependency.admin.outputs.key_name
 }

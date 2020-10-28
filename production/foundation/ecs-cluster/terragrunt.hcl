@@ -8,7 +8,7 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../snowplow-starter-ecs/snowplow-ecs/ecs-cluster//"
+  source = "../../../../snowplow-starter-ecs/snowplow-ecs/ecs-cluster//"
 }
 
 dependency "admin" {
@@ -28,7 +28,7 @@ inputs = {
   amazon_linux_2_ecs_ami = local.common.inputs.amazon_linux_2_ecs_ami
   instance_type = "t3.small"
   min_size = 1
-  max_size = 4
+  max_size = 3
   desired_capacity = 1
   key_name = dependency.admin.outputs.key_name
 }

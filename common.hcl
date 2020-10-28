@@ -4,6 +4,7 @@ inputs = {
   amazon_linux_2_ecs_ami = "ami-08c1d0b4f39f110d4"
   aws_region = get_env("aws_region")
   bucket_name = get_env("bucket_name")
+  artifacts_bucket_name = get_env("artifacts_bucket_name")
 
   master_account_id = get_env("master_account_id")
   master_account_profile = get_env("master_account_profile")

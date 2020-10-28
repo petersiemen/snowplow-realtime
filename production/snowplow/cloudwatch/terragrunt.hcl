@@ -12,10 +12,18 @@ terraform {
 
 dependency "alb" {
   config_path = "../alb"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    arn_suffix = "fake-arn_suffix"
+  }
 }
 
 dependency "ecs-cluster" {
   config_path = "../ecs-cluster"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    cluster_name = "fake-cluster_name"
+  }
 }
 
 inputs = {

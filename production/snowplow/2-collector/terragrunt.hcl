@@ -16,6 +16,11 @@ dependency "ecs-cluster" {
 
 dependency "kinesis" {
   config_path = "../kinesis"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    collector_good_arn = "fake-collector_good_arn"
+    collector_bad_arn = "fake-collector_bad_arn"
+  }
 }
 
 dependency "alb" {

@@ -16,6 +16,14 @@ dependency "ecs-cluster" {
 
 dependency "kinesis" {
   config_path = "../../kinesis"
+  mock_outputs_allowed_terraform_commands = [
+    "destroy"]
+  mock_outputs = {
+    collector_good_arn = "fake-collector_good_arn"
+    enriched_good_arn = "fake-enriched_good_arn"
+    enriched_good_pii_arn = "fake-enriched_good_pii_arn"
+    enriched_bad_arn = "fake-enriched_bad_arn"
+  }
 }
 
 inputs = {
@@ -34,6 +42,6 @@ inputs = {
 
   task_cpu = 1024
   task_memory = 1024
-  desired_count = 1
+  desired_count = 0
 
 }
