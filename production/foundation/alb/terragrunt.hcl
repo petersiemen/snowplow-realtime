@@ -7,7 +7,7 @@ locals {
 }
 
 terraform {
-  source = "../../../../snowplow-starter-ecs/snowplow-ecs/alb//"
+  source = "../../../../snowplow-starter-aws/snowplow-realtime/foundation/alb//"
 }
 
 

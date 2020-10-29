@@ -8,7 +8,7 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../../snowplow-starter-ecs/snowplow-ecs/rds//"
+  source = "../../../../snowplow-starter-aws/snowplow-realtime/foundation/rds//"
 }
 
 
