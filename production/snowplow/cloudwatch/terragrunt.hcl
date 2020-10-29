@@ -7,11 +7,11 @@ locals {
 }
 
 terraform {
-  source = "../../../snowplow-starter-ecs/snowplow-ecs/cloudwatch//"
+  source = "../../../../snowplow-starter-aws/snowplow-realtime/snowplow/cloudwatch//"
 }
 
 dependency "alb" {
-  config_path = "../alb"
+  config_path = "../../foundation/alb"
   mock_outputs_allowed_terraform_commands = ["destroy"]
   mock_outputs = {
     arn_suffix = "fake-arn_suffix"
@@ -19,7 +19,7 @@ dependency "alb" {
 }
 
 dependency "ecs-cluster" {
-  config_path = "../ecs-cluster"
+  config_path = "../../foundation/ecs-cluster"
   mock_outputs_allowed_terraform_commands = ["destroy"]
   mock_outputs = {
     cluster_name = "fake-cluster_name"
