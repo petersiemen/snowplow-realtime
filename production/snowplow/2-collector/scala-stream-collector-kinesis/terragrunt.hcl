@@ -7,15 +7,15 @@ locals {
 }
 
 terraform {
-  source = "../../../snowplow-starter-ecs/snowplow-ecs/2-collector//"
+  source = "../../../../../snowplow-starter-aws/snowplow-realtime/snowplow/2-collector/scala-stream-collector-kinesis//"
 }
 
 dependency "ecs-cluster" {
-  config_path = "../ecs-cluster"
+  config_path = "../../../foundation/ecs-cluster"
 }
 
 dependency "kinesis" {
-  config_path = "../kinesis"
+  config_path = "../../kinesis"
   mock_outputs_allowed_terraform_commands = ["destroy"]
   mock_outputs = {
     collector_good_arn = "fake-collector_good_arn"
@@ -24,13 +24,13 @@ dependency "kinesis" {
 }
 
 dependency "alb" {
-  config_path = "../alb"
+  config_path = "../../../foundation/alb"
 }
 
 
 inputs = {
 
-  image = "petersiemen/snowplow-scala-stream-collector:1.0.1"
+  image = "petersiemen/snowplow-scala-stream-collector-kinesis:1.0.1"
   domain = local.common.inputs.domain
   dns_provider = local.common.inputs.shared_services_account_profile
   dns_provider_region = local.common.inputs.aws_region

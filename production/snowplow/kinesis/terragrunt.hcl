@@ -8,15 +8,15 @@ locals {
 
 terraform {
   //source = "git::git@github.com:foo/modules.git//frontend-app?ref=v0.0.3"
-  source = "../../../snowplow-starter-ecs/snowplow-ecs/kinesis//"
+  source = "../../../../snowplow-starter-aws/snowplow-realtime/snowplow/kinesis//"
 }
 
 dependency "s3" {
-  config_path = "../s3"
+  config_path = "../../foundation/s3"
 }
 
 dependency "lambda-tsv-to-json-transformer" {
-  config_path = "../lambda/tsv-to-json-transformer"
+  config_path = "../4-storage/lambda-tsv-to-json-transformer"
 
   mock_outputs_allowed_terraform_commands = [
     "destroy"]
