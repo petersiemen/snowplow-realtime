@@ -14,4 +14,8 @@ terraform {
 inputs = {
   bucket_name = local.common.inputs.bucket_name
   artifacts_bucket_name = local.common.inputs.artifacts_bucket_name
+
+  vpc_id = local.common.inputs.vpc_id
+  route_table_id = local.common.inputs.route_table_id
+  region = local.common.inputs.aws_region
 }

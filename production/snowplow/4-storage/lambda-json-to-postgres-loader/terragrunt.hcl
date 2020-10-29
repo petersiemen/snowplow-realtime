@@ -21,7 +21,7 @@ terraform {
 
 inputs = {
   deploy_s3_bucket = dependency.s3.outputs.artifacts_bucket
-  deploy_s3_key = "snowplow-json-to-postgres-loader/00adc99e7e32edc4d8e9bb026dab7aa6"
+  deploy_s3_key = "snowplow-json-to-postgres-loader/defad606df63b1bd2df43148afa0908f"
   trigger_s3_bucket_arn = dependency.s3.outputs.tracking_arn
 
   dwh_database = "snowplow"
@@ -30,5 +30,8 @@ inputs = {
   dwh_username = dependency.rds.outputs.username
   dwh_password = dependency.rds.outputs.password
 
+  security_group_id = dependency.rds.outputs.safe-access-security-group-id
+  subnet_ids = local.common.inputs.subnet_ids
+  region =  local.common.inputs.aws_region
 
 }

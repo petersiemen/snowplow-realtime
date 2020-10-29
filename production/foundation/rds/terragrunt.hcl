@@ -14,6 +14,7 @@ terraform {
 
 inputs = {
   vpc_id = local.common.inputs.vpc_id
+  vpc_cidr = local.common.inputs.vpc_cidr
   vpc_public_subnets = local.common.inputs.subnet_ids
   instance_class = "db.t3.micro"
   name = "snowplow"
@@ -21,4 +22,7 @@ inputs = {
   db_pass = "ein0Ciebaex9"
   db_name = "snowplow"
   publicly_accessible = true
+  trusted_ip_address = local.common.inputs.trusted_ip_address
+
+
 }
