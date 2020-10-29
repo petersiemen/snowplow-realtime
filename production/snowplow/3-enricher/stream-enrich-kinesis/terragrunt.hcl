@@ -7,11 +7,11 @@ locals {
 }
 
 terraform {
-  source = "../../../../snowplow-starter-ecs/snowplow-ecs/3-enrich/scala-stream-enrich//"
+  source = "../../../../../snowplow-starter-aws/snowplow-realtime/snowplow/3-enrich/scala-stream-enrich//"
 }
 
 dependency "ecs-cluster" {
-  config_path = "../../ecs-cluster"
+  config_path = "../../../foundation/ecs-cluster"
 }
 
 dependency "kinesis" {
@@ -28,7 +28,7 @@ dependency "kinesis" {
 
 inputs = {
 
-  image = "petersiemen/snowplow-scala-stream-enrich:1.1.3"
+  image = "petersiemen/snowplow-stream-enrich-kinesis:1.1.3"
   region = local.common.inputs.aws_region
   account_id = local.common.inputs.production_account_id
 
@@ -42,6 +42,6 @@ inputs = {
 
   task_cpu = 1024
   task_memory = 1024
-  desired_count = 0
+  desired_count = 1
 
 }

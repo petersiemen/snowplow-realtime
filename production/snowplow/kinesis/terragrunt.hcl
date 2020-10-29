@@ -28,4 +28,6 @@ dependency "lambda-tsv-to-json-transformer" {
 inputs = {
   snowplow_bucket_arn = dependency.s3.outputs.tracking_arn
   lambda_tsv_to_json_transformer_arn = dependency.lambda-tsv-to-json-transformer.outputs.lambda_arn
+  account_id = local.common.inputs.production_account_id
+  region = local.common.inputs.aws_region
 }
