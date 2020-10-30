@@ -11,13 +11,13 @@
     AWS_PROFILE=XYZ terragrunt apply-all 
     ```
 5. Build an package necessary AWS Lambda functions
-5.1 git clone git@github.com:snowplow-starter-aws/lambda-tsv-to-json-transformer.git
-5.2 git clone git@github.com:snowplow-starter-aws/lambda-json-to-postgres-loader.git
-5.3 update Makefile in lambda-tsv-to-json-transformer with your AWS_PROFILE 
+    * git clone git@github.com:snowplow-starter-aws/lambda-tsv-to-json-transformer.git
+    * git clone git@github.com:snowplow-starter-aws/lambda-json-to-postgres-loader.git
+    * update Makefile in lambda-tsv-to-json-transformer with your AWS_PROFILE 
     ```
     make build.image && make package
     ```
-5.4 update Makefile in lambda-json-to-postgres-loader with your AWS_PROFILE 
+    * update Makefile in lambda-json-to-postgres-loader with your AWS_PROFILE 
     ```
     make build.image && make package
     ```
@@ -28,7 +28,7 @@
     AWS_PROFILE=XYZ terragrunt apply-all 
     ```   
 7.  git@github.com:snowplow-starter-aws/5-data-modeling.git
-7.1 update postgres.properties with your data
+    * update postgres.properties with your data
     ```
     mvn clean install
     ./migrate.sh
