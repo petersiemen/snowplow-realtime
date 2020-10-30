@@ -21,7 +21,7 @@ terraform {
 
 inputs = {
   deploy_s3_bucket = dependency.s3.outputs.artifacts_bucket
-  deploy_s3_key = "snowplow-json-to-postgres-loader/defad606df63b1bd2df43148afa0908f"
+  deploy_s3_key = "snowplow-json-to-postgres-loader/5495771825daf19153e2b9d71a24cd47"
   trigger_s3_bucket_arn = dependency.s3.outputs.tracking_arn
 
   dwh_database = "snowplow"

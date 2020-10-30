@@ -4,3 +4,4 @@ source.sh
 .terraform
 generated-provider.tf
 generated-backend.tf
+login.sh

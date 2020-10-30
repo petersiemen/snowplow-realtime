@@ -29,6 +29,6 @@ inputs = {
   instance_type = "t3.small"
   min_size = 1
   max_size = 3
-  desired_capacity = 1
+  desired_capacity = 3
   key_name = dependency.admin.outputs.key_name
 }

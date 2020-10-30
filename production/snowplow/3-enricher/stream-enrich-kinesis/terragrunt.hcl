@@ -33,6 +33,9 @@ inputs = {
   account_id = local.common.inputs.production_account_id
 
   ecs_cluster_id = dependency.ecs-cluster.outputs.cluster_id
+  ecs_default_capacity_provider = dependency.ecs-cluster.outputs.default_capacity_provider
+  ecs_default_capacity_provider_base = 0
+  ecs_default_capacity_provider_weight = dependency.ecs-cluster.outputs.default_capacity_provider_weight
 
   collector_stream_good_arn = dependency.kinesis.outputs.collector_good_arn
   enricher_stream_good_arn = dependency.kinesis.outputs.enriched_good_arn
