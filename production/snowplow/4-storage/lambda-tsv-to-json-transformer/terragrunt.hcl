@@ -23,6 +23,6 @@ terraform {
 
 inputs = {
   deploy_s3_bucket = dependency.s3.outputs.artifacts_bucket
-  deploy_s3_key = "snowplow-tsv-to-json-transformer/961d99b809096547bef29d5010e62f8c"
+  deploy_s3_key = "snowplow-tsv-to-json-transformer/920b631da9cfcdeb5c8f080471dcf264"
   trigger_s3_bucket_arn = dependency.s3.outputs.tracking_arn
 }

@@ -8,7 +8,8 @@ locals {
 
 dependency "s3" {
   config_path = "../../../foundation/s3"
-  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs_allowed_terraform_commands = [
+    "destroy"]
   mock_outputs = {
     tracking_arn = "fake-tracking_arn"
     artifacts_bucket = "fake-artifacts_bucket"
@@ -18,7 +19,8 @@ dependency "s3" {
 dependency "rds" {
   config_path = "../../../foundation/rds"
 
-  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs_allowed_terraform_commands = [
+    "destroy"]
   mock_outputs = {
     host = "fake-host"
     port = "fake-port"
@@ -46,6 +48,6 @@ inputs = {
 
   security_group_id = dependency.rds.outputs.safe-access-security-group-id
   subnet_ids = local.common.inputs.subnet_ids
-  region =  local.common.inputs.aws_region
+  region = local.common.inputs.aws_region
 
 }
