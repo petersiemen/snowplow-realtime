@@ -12,6 +12,14 @@ terraform {
 
 dependency "ecs-cluster" {
   config_path = "../../../foundation/ecs-cluster"
+  mock_outputs_allowed_terraform_commands = [
+    "destroy"]
+  mock_outputs = {
+    cluster_id = "fake-cluster_id"
+    cluster_name= "fake-cluster_name"
+    default_capacity_provider = "fake-default_capacity_provider"
+    default_capacity_provider_weight = "fake-default_capacity_provider_weight"
+  }
 }
 
 dependency "kinesis" {

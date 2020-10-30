@@ -26,7 +26,27 @@ dependency "ecs-cluster" {
   }
 }
 
+dependency "stream-enrich-kinesis" {
+  config_path = "../3-enricher/stream-enrich-kinesis"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    ecs_service_name = "fake-ecs_service_name"
+  }
+}
+
+dependency "scala-stream-collector-kinesis" {
+  config_path = "../2-collector/scala-stream-collector-kinesis"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    ecs_service_name = "fake-ecs_service_name"
+  }
+}
+
 inputs = {
   ecs_cluster_name = dependency.ecs-cluster.outputs.cluster_name
   alb_arn_suffix = dependency.alb.outputs.arn_suffix
+
+  ecs_service_name_collector = dependency.scala-stream-collector-kinesis.outputs.ecs_service_name
+  ecs_service_name_enrich = dependency.stream-enrich-kinesis.outputs.ecs_service_name
+
 }

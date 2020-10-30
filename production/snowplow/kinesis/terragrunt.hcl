@@ -13,6 +13,11 @@ terraform {
 
 dependency "s3" {
   config_path = "../../foundation/s3"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    tracking_arn = "fake-tracking_arn"
+    artifacts_bucket = "fake-artifacts_bucket"
+  }
 }
 
 dependency "lambda-tsv-to-json-transformer" {

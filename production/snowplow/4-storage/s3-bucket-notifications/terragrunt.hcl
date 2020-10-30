@@ -8,10 +8,19 @@ locals {
 
 dependency "s3" {
   config_path = "../../../foundation/s3"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    lambda_arn = "fake-lambda_arn"
+  }
 }
 
 dependency "lambda-json-to-postgres-loader" {
   config_path = "../lambda-json-to-postgres-loader"
+
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    lambda_arn = "fake-lambda_arn"
+  }
 }
 
 terraform {

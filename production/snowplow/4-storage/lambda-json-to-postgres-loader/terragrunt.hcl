@@ -8,10 +8,24 @@ locals {
 
 dependency "s3" {
   config_path = "../../../foundation/s3"
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    tracking_arn = "fake-tracking_arn"
+    artifacts_bucket = "fake-artifacts_bucket"
+  }
 }
 
 dependency "rds" {
   config_path = "../../../foundation/rds"
+
+  mock_outputs_allowed_terraform_commands = ["destroy"]
+  mock_outputs = {
+    host = "fake-host"
+    port = "fake-port"
+    username = "fake-username"
+    password = "fake-password"
+    safe-access-security-group-id = "fake-safe-access-security-group-id"
+  }
 }
 
 terraform {
@@ -21,7 +35,7 @@ terraform {
 
 inputs = {
   deploy_s3_bucket = dependency.s3.outputs.artifacts_bucket
-  deploy_s3_key = "snowplow-json-to-postgres-loader/5495771825daf19153e2b9d71a24cd47"
+  deploy_s3_key = "snowplow-json-to-postgres-loader/bf6241ea5e30e14918d663a935cc1bf2"
   trigger_s3_bucket_arn = dependency.s3.outputs.tracking_arn
 
   dwh_database = "snowplow"
