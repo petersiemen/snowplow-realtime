@@ -21,6 +21,8 @@
     ```
     make build.image && make package
     ```
+   * update s3-deploy-key prefixes for lambda-tsv-to-json-transformer and lambda-json-to-postgres-loader
+   in production/snowplow/4-storage/lambda-json-to-postgres-loader and production/snowplow/4-storage/lambda-tsv-to-json-transformer
 6. terraform snowplow AWS resources
     ```
     cd production/snowplow
